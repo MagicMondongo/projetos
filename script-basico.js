@@ -92,5 +92,7 @@ document.addEventListener('DOMContentLoaded', function (){
          }
 
          console.log(pessoa['profissao']);
+
+         //chgarlekdfia
     
     });
