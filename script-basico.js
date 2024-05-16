@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', function (){
 
       function primeiraFunção(parametro, segundoParametro) {
 
-        return parametro + ', tua mãe e minha' + segundoParametro;
+        return parametro + segundoParametro;
 
       }
       
