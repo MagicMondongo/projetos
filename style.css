@@ -1,0 +1,31 @@
+body{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background-color: azure;
+    margin: 0;
+}/*body:vai estilizar o corpo do html*/
+
+h1{
+    margin: 0; /*margin tira aquele espaço entre o header com o limite do site*/
+    font-family: Arial, Helvetica, sans-serif;
+    color: black
+}/*h1:vai estilizar o titulo ou sub-titulo*/
+
+header{
+    background-image: linear-gradient(to right,#6477E0,#949CD1);
+    text-align: center;
+    border-radius: 5px; /*border-radius e e usado para arredondar as bordas*/
+    box-shadow: 0 0 45px; /*box-shadow e a sombra do topo do site*/
+    display: flex; /*display:flex:quando utilizado esse elemento se torna um flex container, 
+    a partir daí podemos manipular todos os elementos filhos desse flex container com propriedades novas.*/
+    justify-content: space-between; /*para usar o space-between tem que usar o display flex*/
+    padding: 5px;
+}/*header:vai estilizar o topo do site*/
+
+#box-categorias button,
+#box-ordenar button{/*quando usa o id como identificador.Para estilizar no css tem que colocar o #,vai estilizar os botões*/
+    background-image: linear-gradient(to right, #6477E0, #949CD1);
+    border: 0; /*é uma propriedade que adiciona um contorno em volta de um elemento*/
+    color:black;
+    padding: 10px 20px; /*define uma a distância entre o conteúdo de um elemento e suas bordas.*/
+    border-radius: 10px;
+}
