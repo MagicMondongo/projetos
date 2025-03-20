@@ -1,35 +1,82 @@
-import kotlin.random.Random
-
 fun main() {
-    val opcoes = arrayOf("Pedra", "Papel", "Tesoura")
+    menu()
 
-    fun computadorEscolhe(): String {
-        return opcoes[Random.nextInt(opcoes.size)]
-    }
+}
 
-    fun determinarVencedor(jogador: String, computador: String): String {
-        return when {
-            jogador == computador -> "Empate!"
-            jogador == "Pedra" && computador == "Tesoura" -> "Você ganhou!"
-            jogador == "Papel" && computador == "Pedra" -> "Você ganhou!"
-            jogador == "Tesoura" && computador == "Papel" -> "Você ganhou!"
-            else -> "Você perdeu!"
+private fun menu() {
+    do {
+
+        println("--- MENU ---")
+        println("1- CADASTRAR")
+        println("2- LISTAR")
+        println("3- EDITAR")
+        println("4- EXCLUIR")
+        println("0- SAIR")
+
+        val opcao = readln().toInt()//validar
+        var convidado: Convidado = Convidado()
+        when (opcao) {
+            1 -> { print("Cadastrando...")
+            convidado = cadastrar() }
+            2 ->  { print("Listando...")
+                listar(convidado) }
+            3 -> {
+                print("Editar...")
+            }
+            4 -> {
+                print("Excluindo...")
+            }
+            0 -> {
+                print("Saindo.")
+            }
         }
+
+    } while (true)
+
+    private fun cadastrar(): Convidado
+    {
+        /*var nome: String = ""
+        var presente: String = ""
+        var alimentar: String = ""*/
+        //Instância
+        var convidado = Convidado()
+
+        print("Qual o seu nome?")
+        val nome = readln()
+        convidado.nome = readln()
+
+        print("Qual vai ser o presente?")
+        val presente = readln()
+        convidado.presente = readln()
+
+        print("Qual sua restrição alimentar?")
+        val alimento = readln()
+        convidado.alimentar = readln()
+        return convidado
+
+    }
+    private fun listar(convidado: Convidado){
+        print("Nome: ${convidado.nome} ;" +
+                "Presente: ${convidado.presente} ;" +
+                "Restrição: ${convidado.alimentar} ; " +
+        "Vai ir para festa?: ${convidado.presenca} \n; ")
+
     }
 
-    println("Bem-vindo ao jogo de Pedra, Papel ou Tesoura!")
-    println("Escolha uma opção: Pedra, Papel ou Tesoura")
 
-    val jogadorEscolha = readLine()?.capitalize() ?: ""
-
-    if (jogadorEscolha !in opcoes) {
-        println("Escolha inválida. Tente novamente!")
-        return
+private fun editar(){
+    println("O convidado vai? S/N")
+    val resposta = readln()
+    when(resposta){
+        "S"-> convidado.presenca = true
+        "N"-> convidado.presenca = false
     }
-
-    val computadorEscolha = computadorEscolhe()
-    println("O computador escolheu: $computadorEscolha")
-
-    val resultado = determinarVencedor(jogadorEscolha, computadorEscolha)
-    println(resultado)
+}
+private fun excluir(){
+    convidado.nome = ""
+    convidado.alimentar = ""
+    convidado.presente = ""
+    convidado.presenca = false
+    println("Convidado excluido")
+}
 }
